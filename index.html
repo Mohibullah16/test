@@ -107,8 +107,8 @@
             Welcome to our landing page. This is where great journeys begin 
             and amazing experiences unfold. We're delighted to have you here.
         </p>
-        <button class="action-button" id="startButton">Get Started</button>
-        <div class="notification-message" id="successNotification">
+        <button class="action-button" id="startButton" aria-label="Get started with your journey">Get Started</button>
+        <div class="notification-message" id="successNotification" role="status" aria-live="polite">
             Thanks for clicking! Your adventure begins now. 🚀
         </div>
     </div>
@@ -123,7 +123,7 @@
                 
                 setTimeout(function() {
                     notification.classList.remove('show');
-                }, 3500);
+                }, 5000);
             });
         });
     </script>
