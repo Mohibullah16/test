@@ -80,6 +80,23 @@
             margin: 30px auto;
             border-radius: 2px;
         }
+        
+        .notification-message {
+            margin-top: 25px;
+            padding: 15px 25px;
+            background: #48bb78;
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .notification-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -90,14 +107,25 @@
             Welcome to our landing page. This is where great journeys begin 
             and amazing experiences unfold. We're delighted to have you here.
         </p>
-        <button class="action-button" onclick="displayMessage()">Get Started</button>
+        <button class="action-button" id="startButton">Get Started</button>
+        <div class="notification-message" id="successNotification">
+            Thanks for clicking! Your adventure begins now. 🚀
+        </div>
     </div>
     
     <script>
-        function displayMessage() {
-            const messageText = 'Thanks for clicking! Your adventure begins now.';
-            alert(messageText);
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const startButton = document.getElementById('startButton');
+            const notification = document.getElementById('successNotification');
+            
+            startButton.addEventListener('click', function() {
+                notification.classList.add('show');
+                
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                }, 3500);
+            });
+        });
     </script>
 </body>
 </html>
